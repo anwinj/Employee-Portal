@@ -1,0 +1,39 @@
+<div class="container-fluid ">
+    <div class="row">
+        <div *ngIf="sideBarStatus" style="height:94vh" class="col-lg-1 bg-dark d-flex flex-column justify-content-between  p-3">
+            <div class="d-flex flex-column justify-content-center  ">
+                <a class="text-decoration-none fw-light text-light text-uppercase fs-5 mb-4" routerLink="/dashboard">Home</a>
+                <a class="text-decoration-none fw-light text-light text-uppercase fs-5" routerLink="/users">Users</a>
+            </div>
+            <button (click)="Logout()" style="margin-left: -20px;" class="btn text-light"><i class="fa-solid fa-right-from-bracket me-2"></i>LOGOUT</button>
+        </div>
+        <div class="col-lg-11">
+            <div class="row p-2 pt-3 w-100 h-100">
+                <div class="col-lg-8">
+                    <div style="height: 180px;background-image:url(https://t4.ftcdn.net/jpg/03/26/59/69/360_F_326596944_m7WkrlErKIg1W2HAIzuOWUwGZ5R54v4h.jpg);" class="banner rounded d-flex justify-content-center align-items-center ">
+                        <h1 class="fw-bolder text-light"><i (click)="menuBtnClicked()" style="cursor:pointer" class="fa-solid fa-bars me-3"></i>Welcome {{adminName}}!!!</h1>
+                    </div>
+                    <div class="row mt-3 p-2">
+                        <div class="col-lg-5 rounded">
+                            <!-- calendar -->
+                            <app-calendar></app-calendar>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-6 border rounded">
+                            <!-- chart -->
+                            <app-chart></app-chart>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div style="height: 480px;" class="border rounded w-100 mb-3">
+                        <app-update-admin (onAdminChange)="onAdminChange($event)"></app-update-admin>
+                    </div>
+                    <div style="height: 190px;background-image:url(https://t4.ftcdn.net/jpg/03/26/59/69/360_F_326596944_m7WkrlErKIg1W2HAIzuOWUwGZ5R54v4h.jpg);" class="banner rounded d-flex justify-content-center align-items-center ">
+                        <h1 class="fw-bolder text-light"><i class="fa-solid fa-users me-2"></i>Employees-{{userCount}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
